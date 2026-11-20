@@ -19,6 +19,13 @@ h1 {
   text-align: center;
 }
 
+.pieces {
+  text-align: center;
+  color: #6e6888;
+  margin: -8px 0 16px;
+  font-size: 14px;
+}
+
 .chat {
   flex: 1;
   overflow-y: auto;
@@ -93,10 +100,9 @@ h1 {
   cursor: pointer;
 }
 
-.upload {
-  padding: 14px;
-  border-radius: 12px;
-  background: white;
-  border: 1px solid #cfc4f4;
-  cursor: pointer;
+.ask-box .clear {
+  background: #eee8ff;
+  color: #4a349c;
+  padding: 14px 16px;
+  font-size: 14px;
 }

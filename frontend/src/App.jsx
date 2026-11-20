@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 const API = "http://localhost:8000";
@@ -13,10 +13,24 @@ function App() {
   const [question, setQuestion] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [pieces, setPieces] = useState(0);
+
+  // Gets the number of pieces when the page opens
+  useEffect(() => {
+    fetch(`${API}/`)
+      .then((res) => res.json())
+      .then((data) => setPieces(data.pieces))
+      .catch(() => {});
+  }, []);
 
   // Adds one message to the chat
   function addMessage(msg) {
     setMessages((old) => [...old, msg]);
+  }
+
+  // Empties the messages list
+  function clearMessages() {
+    setMessages([]);
   }
   async function askQuestion() {
     if (!question.trim()) return;
@@ -51,6 +65,10 @@ function App() {
       if (!res.ok) throw new Error("Upload error");
       const data = await res.json();
       addMessage({ role: "bot", text: data.message });
+      fetch(`${API}/`)
+        .then((res) => res.json())
+        .then((d) => setPieces(d.pieces))
+        .catch(() => {});
     } catch {
       addMessage({ role: "bot", text: "Upload failed. Try again." });
     }
@@ -60,6 +78,7 @@ function App() {
   return (
     <div className="app">
       <h1>📚 Ask My Notes</h1>
+      <p className="pieces">📄 {pieces} pieces in your notes</p>
       <div className="chat">
         {messages.length === 0 && (
           <p className="hint">Ask anything about your notes 👇</p>
@@ -85,6 +104,9 @@ function App() {
         />
         <button onClick={askQuestion} disabled={loading}>
           Ask
+        </button>
+        <button onClick={clearMessages} className="clear">
+          Clear
         </button>
       </div>
     </div>

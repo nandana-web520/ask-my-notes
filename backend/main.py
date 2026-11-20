@@ -37,7 +37,7 @@ def ask(q: Question):
 
     
     notes = "\n\n".join(pieces)
-    prompt = f"""Answer the question using ONLY these notes.If the answer is not in the notes, say "Not found in your notes."
+    prompt = f"""You are a friendly teacher. Answer the question using ONLY these notes in simple words, and include one short example. If the answer is not in the notes, say "Not found in your notes."
 
     Notes:
     {notes}
