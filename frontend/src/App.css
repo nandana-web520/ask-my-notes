@@ -84,3 +84,19 @@ h1 {
   font-weight: bold;
   cursor: pointer;
 }
+
+.upload {
+  padding: 14px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #cfc4f4;
+  cursor: pointer;
+}
+
+.upload {
+  padding: 14px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #cfc4f4;
+  cursor: pointer;
+}
