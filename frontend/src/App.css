@@ -106,3 +106,68 @@ h1 {
   padding: 14px 16px;
   font-size: 14px;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 0;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid #cfc4f4;
+  background: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+body.dark {
+  background: #141124;
+}
+
+.app.dark h1 {
+  color: #eee9fe;
+}
+
+.app.dark .pieces,
+.app.dark .hint {
+  color: #9d94c5;
+}
+
+.app.dark .msg.bot {
+  background: #201c34;
+  color: #f1edff;
+  border-color: #352d56;
+}
+
+.app.dark .msg small {
+  color: #9d94c5;
+}
+
+.app.dark .ask-box input {
+  background: #201c34;
+  color: #f1edff;
+  border-color: #3d3463;
+}
+
+.app.dark .upload {
+  background: #201c34;
+  color: #f1edff;
+  border-color: #3d3463;
+}
+
+.app.dark .ask-box .clear {
+  background: #2c2548;
+  color: #cec4fc;
+}
+
+.app.dark .theme-toggle {
+  background: #201c34;
+  color: #f1edff;
+  border-color: #3d3463;
+}

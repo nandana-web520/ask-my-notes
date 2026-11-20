@@ -14,6 +14,12 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [pieces, setPieces] = useState(0);
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Sync dark mode class with the body
+  useEffect(() => {
+    document.body.className = darkMode ? "dark" : "";
+  }, [darkMode]);
 
   // Gets the number of pieces when the page opens
   useEffect(() => {
@@ -76,8 +82,16 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <h1>📚 Ask My Notes</h1>
+    <div className={`app ${darkMode ? "dark" : ""}`}>
+      <div className="header">
+        <h1>📚 Ask My Notes</h1>
+        <button
+          className="theme-toggle"
+          onClick={() => setDarkMode((prev) => !prev)}
+        >
+          {darkMode ? "☀️ Light" : "🌙 Dark"}
+        </button>
+      </div>
       <p className="pieces">📄 {pieces} pieces in your notes</p>
       <div className="chat">
         {messages.length === 0 && (
